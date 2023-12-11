@@ -17,9 +17,10 @@
                     <th>Action</th>
                 </tr>
             </thead>
-            <?php $no = 1;
-            foreach ($siswa as $ssw) : ?>
-                <tbody>
+
+            <tbody>
+                <?php $no = 1;
+                foreach ($siswa as $ssw) : ?>
                     <tr>
                         <td><?= $no++ ?></td>
                         <td><?= $ssw->nama_siswa ?></td>
@@ -31,8 +32,9 @@
                             <button href="" class="btn btn-danger btn-sm"><i class="fas fa-trash"></i></button>
                         </td>
                     </tr>
-                </tbody>
-            <?php endforeach ?>
+                <?php endforeach ?>
+            </tbody>
+
         </table>
     </div>
 </div>
@@ -43,7 +45,7 @@
 </button>
 
 <!-- Modal Edit -->
-<?php foreach($siswa as $ssw) ?>
+<?php foreach ($siswa as $ssw) ?>
 <div class="modal fade" id="#edit<?= $ssw->id_siswa ?>" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
     <div class="modal-dialog">
         <div class="modal-content">
@@ -84,4 +86,3 @@
         </div>
     </div>
 </div>
-<?php endforeach ?>
