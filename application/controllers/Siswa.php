@@ -45,9 +45,14 @@ class Siswa extends CI_Controller
             );
 
             $this->siswa_model->insert_data($data, 'tbl_siswa');
-            $this->session->set_flashdata('pesan', '<div class="alert alert-warning alert-dismissible fade show" role="alert">
+            $this->session->set_flashdata('pesan', '<div class="alert alert-success alert-dismissible fade show" role="alert">
             Data berhasil ditambahkan!
-            <button type="button" class="close" data-dismiss="alert" aria-label="Close"><span aria-hidden="true">&times;</span></button></div>');
+            <button type="button" class="close" data-dismiss="alert" aria-label="Close"><span aria-hidden="true">&times;</span></button></div>'
+                . '<script>
+            setTimeout(function(){
+                $(".alert").alert("close");
+            }, 2000);
+            </script>');
             redirect('siswa');
         }
     }
@@ -68,7 +73,12 @@ class Siswa extends CI_Controller
             $this->siswa_model->update_data($data, 'tbl_siswa');
             $this->session->set_flashdata('pesan', '<div class="alert alert-warning alert-dismissible fade show" role="alert">
             Data berhasil diubah!
-            <button type="button" class="close" data-dismiss="alert" aria-label="Close"><span aria-hidden="true">&times;</span></button></div>');
+            <button type="button" class="close" data-dismiss="alert" aria-label="Close"><span aria-hidden="true">&times;</span></button></div>'
+                . '<script>
+            setTimeout(function(){
+                $(".alert").alert("close");
+            }, 2000);
+            </script>');
             redirect('siswa');
         }
     }
@@ -94,9 +104,14 @@ class Siswa extends CI_Controller
         $where = array('id_siswa' => $id);
 
         $this->siswa_model->delete($where, 'tbl_siswa');
-        $this->session->set_flashdata('pesan', '<div class="alert alert-warning alert-dismissible fade show" role="alert">
+        $this->session->set_flashdata('pesan', '<div class="alert alert-danger alert-dismissible fade show" role="alert">
             Data berhasil dihapus!
-            <button type="button" class="close" data-dismiss="alert" aria-label="Close"><span aria-hidden="true">&times;</span></button></div>');
+            <button type="button" class="close" data-dismiss="alert" aria-label="Close"><span aria-hidden="true">&times;</span></button></div>'
+            . '<script>
+            setTimeout(function(){
+                $(".alert").alert("close");
+            }, 2000);
+            </script>');
         redirect('siswa');
     }
 }
