@@ -3,6 +3,8 @@
 <div class="card">
     <div class="card-header">
         <a href="<?= base_url('siswa/tambah') ?>" class="btn btn-primary btn-sm"><i class="fas fa-plus"></i> Tambah Siswa</a>
+        <a href="<?= base_url('siswa/print') ?>" class="btn btn-info btn-sm"><i class="fas fa-print"></i> Print</a>
+        <a href="<?= base_url('siswa/pdf') ?>" class="btn btn-success btn-sm"><i class="fas fa-file"></i> Export PDF</a>
     </div>
     <!-- /.card-header -->
     <div class="card-body">

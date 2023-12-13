@@ -83,6 +83,29 @@ class Siswa extends CI_Controller
         }
     }
 
+    public function print()
+    {
+        $data['siswa'] = $this->siswa_model->get_data('tbl_siswa')->result();
+        $this->load->view('print_siswa', $data);
+    }
+
+    public function pdf()
+    {
+        $this->load->library('dompdf_gen');
+
+        $data['siswa'] = $this->siswa_model->get_data('tbl_siswa')->result();
+        $this->load->view('laporan_siswa', $data);
+
+        $paper_size = 'A4';
+        $orientation = 'potrait';
+        $html = $this->output->get_output();
+        $this->dompdf->set_paper($paper_size, $orientation);
+
+        $this->dompdf->load_html($html);
+        $this->dompdf->render();
+        $this->dompdf->stream('laporan_siswa.pdf', array('Attachment' => 0));
+    }
+
     public function _rules()
     {
         $this->form_validation->set_rules('nama_siswa', 'Nama Siswa', 'required', array(
